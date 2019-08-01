@@ -1,0 +1,34 @@
+(define CC_Luhn_Algo 
+
+
+(lambda (cc_input)
+ (let loop ((number cc_input)
+            (index 0)
+            (value 0))
+
+  ;taking in a number and then mod 10
+  ;has to be equal to 0      
+  (if(= 0 number)
+
+  ;if the remainder mod 10 = 0, then loop through the quoteient
+    (= 0 (mod value 10))
+
+;the loop starts and we then take the quotient and divide by 10
+    (loop (truncate (/ number 10))
+
+    ; add one to the index
+          (+ index 1)         
+      
+	 ; increase the value
+          (+ value
+
+          ; beginning recustion process
+             (if (even? index)
+
+             ;take in the number and mod 10
+                 (mod number 10)
+
+                 ;Multiply each digit by two and sum the digits
+ (let ((part (* 2 (mod number 10))))
+ (+ (mod part 10) (truncate (/ part 10)))))))))))
+
